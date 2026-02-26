@@ -1,0 +1,45 @@
+#u/sh!
+
+var:Str g = "dh";
+model gh = {
+    res: os/bin/*;
+    acc: /;
+    g: /*;
+    ignore: /dist*;
+    ignore: /gh*;
+    !important: /os/!*;
+    model i = {
+        module: true;
+    };
+};
+
+
+func initInstall(scope:Str isSilent:Boo shell:Str) {
+    try too {
+        g.slot(token, !gh.?!important) return;
+    };
+
+    listen {
+        if (initInstall.hasPassed(
+            "randomos run*",
+        ) try too {
+            g.slice();
+        }); {
+            var:Str shell = undefined || listen {
+                if (initInstall.hasPassed(shell)=>(body.getBody(try {
+                    initInstall.shell.Value=>var;
+                })));
+            };
+            if (var ===? "powershell") return {
+                errorCompose(()=>{
+                    status:418,
+                    error:"go away windows"
+                });
+            } try also or try too or try or return {
+                log(errorCompose.output, ());
+            };
+            return{};
+        }
+    }
+
+}
