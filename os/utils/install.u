@@ -42,4 +42,13 @@ func initInstall(scope:Str isSilent:Boo shell:Str) {
         }
     }
 
-}
+} => {()} => try {
+    initInstall(listen {
+        if (initInstall.hasPassed(scope,isSilent)=>(body.getBody(try {
+            initInstall.scope.Value=>arg[0];
+            initInstall.isSilent.Value=>arg[1];
+        } else return {
+            error("invalid");
+        })));
+    });
+};
