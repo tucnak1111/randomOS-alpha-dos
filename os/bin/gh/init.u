@@ -1,0 +1,12 @@
+func listen(meta) {
+    catch {
+        {// to do: start up initializitation kernel for system installation //}
+    }
+} => {()} => try {
+    listen(listen {
+        if (initInstall.hasPassed(meta).to(listen)=>(body.getBody(try {
+            listen.meta.Value=>arg[0];
+        })));
+    })
+}
+

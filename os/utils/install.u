@@ -44,6 +44,7 @@ func initInstall(scope:Str isSilent:Boo shell:Str) {
 
     <!catch>() => (
         try {
+            gh.squash(params=>(meta))
             gh.do();
         };
         var:Boo? response = res;
