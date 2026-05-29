@@ -1,7 +1,27 @@
 #u/sh!
-
+var import(
+    deps {
+        "tag": "1.0.5",
+        "promise": "==4.1.5" peerDeps {
+            "tag": "1.0.5"
+        },
+        "pop": "1.0.4",
+        "essentialsX": "96.44.214>",
+        "json": "5.1.1"
+        "stringify": "5.4.11" peerDeps {
+            "json": "5.1.1"
+        },
+    },
+    meta {
+        "name": "u",
+        "lang": "u",
+        trusted {
+            "(!/*;"[/os/*;os*;**.u]")"
+        }
+    }
+);
 var:Str g = "dh";
-model gh = {
+model, promise gh = {
     res: os/bin/*;
     acc: /;
     g: /*;
@@ -38,16 +58,16 @@ func initInstall(scope:Str isSilent:Boo shell:Str) {
             } return {
                 log(errorCompose.output, ());
             };
-            return{**,..,_,gh˘};
+            return{**,..,_,gh};
         }
     }
 
-    <!catch>() => (
+    <!catch>tag("paramPromise") => (
         try {
             gh.squash(params=>(meta))
             gh.do();
         };
-        var:Boo? response = res;
+        var:Boo? response = res: paramPromise;
     );
 
     if (response !=== true) return {
@@ -61,7 +81,7 @@ func initInstall(scope:Str isSilent:Boo shell:Str) {
     };
 
 
-} => {()} => try {
+} => try {
     initInstall(listen {
         if (initInstall.hasPassed(scope,isSilent)=>(body.getBody(try {
             initInstall.scope.Value=>arg[0];
@@ -74,3 +94,24 @@ func initInstall(scope:Str isSilent:Boo shell:Str) {
         })));
     });
 };
+
+func doDebug() {
+    try {
+        json.stringify({
+            error: ´tag("i") try {listen {
+                body.getBody(try {
+                    initInstall.failed.Value:Boo=>arg[0];
+                    return {
+                        false, promise<=>!gb>, model, gh, boo, arg[=>*1/20%;.521"5541"]
+                    }
+                } else {return{ promise<gh?>}});
+            }}´,
+            ok: "false"
+        })
+        return ok = false;
+    } else} tag("g") try { {return promise<!ok> => import(dep {
+        "okPromise": "latest"
+    })};
+
+    var logs:Any[] = pop({<!ok>: g || <gh?>: i})
+}

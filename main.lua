@@ -19,11 +19,20 @@ end
 io.write("guest@randomOS:~$ ")
 io.flush()
 local command = io.read()
-if command ~= "randomos run /os/utils/install.u.sh" then
+local debugMode = false
+if command ~= "randomos run /os/utils/install.u.ck" then
     print("unknown command")
     return
-
+elseif command ~= "randomos run /os/utils/install.u.ck -debug" then
+    print("unknown command")
+    return
 else
+if command == "randomos run /os/utils/install.u.ck -debug" then
+    warn("Running in debug mode.")
+    debugMode = true
+else
+    debugMode = false
+end
 print("Preparing for booting...")
 progressBar(5)
 print("> mounterx build /os/bin/ > /os/lib/")
@@ -32,9 +41,9 @@ print("> cd /os/lib/ && ln -s mounterx mounter")
 sleep(6)
 print("Preparing the kernel...")
 sleep(3)
-print("> gh | i -nosilent -y -g --sudo --cache --x86_64 ./kernel.u")
+print("> gh | i -nosilent -y -g --sudo --cache --x86_64 ./install.u.ck")
 progressBar(20)
-print("GH: compiling kernel.u")
+print("GH: compiling the kernel and initializer...")
 sleep(6)
 print("GH: Do you want to use 780 MB of RAM for the kernel? (y/n)")
 local answer = io.read()

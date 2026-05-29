@@ -1,0 +1,64 @@
+always model main {
+    deps {
+        "useGhSearch": "latest",
+        "gh": "latest" peerDeps {
+            "@gh/u": "latest",
+            "@gh/types": "latest",
+            "@gh/u/kernel": "latest",
+            "@gh/server": "latest",
+            "@gh/client": "latest",
+            "@gh/syntax": "latest",
+            "@gh/request", "@gh/reactnueve", ´.from(/deps/useGhSearch/main.u).useGhSearch("@gh/*")´: "latest"
+        }
+    }
+}
+
+export default model main {
+    deps {
+        "@gh/u": "1.0.0-alpha.1"
+    }
+}
+
+export model install {
+    autoAssociations {
+        ´/utils/*:
+          /install.u
+          ! /install.u.ck´
+        break;
+    },
+    deps {
+        "tag": "1.0.5",
+        "promise": "==4.1.5" peerDeps {
+            "tag": "1.0.5"
+        },
+        "pop": "1.0.4",
+        "essentialsX": "96.44.214>",
+        "json": "5.1.1"
+        "stringify": "5.4.11" peerDeps {
+            "json": "5.1.1"
+        }
+    }
+}
+
+export model installCk {
+    autoAssociations {
+        ´/utils/*:
+          ! /install.u
+          /install.u.ck´
+        break;
+    },
+    deps {
+    "useState": "2.6.41" peerDeps {all},
+    "sys": "6.5.12",
+    "body": "latest",
+    "req": "latest>",
+    "res": "latest>",
+    }
+}
+
+draft export model init {
+    deps {
+        "jsonencoding": "latest",
+        "gh": "0.0.1-alpha.2"
+    }
+}
